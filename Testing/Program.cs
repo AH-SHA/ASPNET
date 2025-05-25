@@ -5,11 +5,14 @@ using Microsoft.Extensions.Hosting;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Testing;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Code copied in from Assignment - MVC
 
 builder.Services.AddScoped<IDbConnection>((s) =>
 {
@@ -19,6 +22,9 @@ builder.Services.AddScoped<IDbConnection>((s) =>
 });
 
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
+
+
+
 
 var app = builder.Build();
 
